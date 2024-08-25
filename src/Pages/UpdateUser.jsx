@@ -64,7 +64,7 @@ const UpdateUser = () => {
         })
         dispatch(UPDATE_USER_RESET());
         navigate("/");
-        window.location.reload();
+       // window.location.reload();
       }
       
     }, [user,error,isUpdate,dispatch,id,pError,navigate])
