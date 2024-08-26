@@ -133,12 +133,13 @@
 }
 
 /* Responsive design for very small screens */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .newProductContainer {
       padding: 0.5rem; /* Reduced padding for very small screens */
   }
 
   .createProductForm {
+      margin: 0%;
       padding: 1rem;
       width: 100%;
       height: auto; /* Adjust height for very small screens */
