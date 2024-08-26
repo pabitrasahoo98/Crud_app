@@ -5,7 +5,6 @@ import { Button, Typography } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import Loader from './Loader';
 import { getUser, clearUserErrors, deleteUser, clearDUErrors } from '../actions/userAction';
 import { DELETE_USER_RESET } from '../reducers/manipulateUserReducer';
 import Swal from 'sweetalert2';
@@ -13,7 +12,7 @@ import AddIcon from '@mui/icons-material/Add';
 import Header from './Header';
 
 const Home = () => {
-  const { user, error, loading } = useSelector((state) => state.users);
+  const { user, error } = useSelector((state) => state.users);
   const { isDeleted, error: dError } = useSelector((state) => state.maniUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -86,9 +85,7 @@ const Home = () => {
     setCurrentPage(id);
   };
 
-  if (loading) {
-    return <Loader />;
-  }
+  
 
   return (
     <>

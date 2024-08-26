@@ -10,7 +10,6 @@ import InstallMobileIcon from '@mui/icons-material/InstallMobile';
 import BoyIcon from '@mui/icons-material/Boy';
 import Swal from 'sweetalert2';
 import { useNavigate, useParams } from 'react-router-dom';
-import Loader from './Loader';
 import Header from './Header';
 
 
@@ -20,8 +19,8 @@ const UpdateUser = () => {
     const navigate=useNavigate();
     const dispatch = useDispatch();
 
-    const { loading, error, isUpdate } = useSelector((state) => state.maniUser);
-    const {loading:ploading, user,error:pError } = useSelector((state) => state.user);
+    const {loading,  error, isUpdate } = useSelector((state) => state.maniUser);
+    const { user,error:pError } = useSelector((state) => state.user);
   
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -86,12 +85,6 @@ const UpdateUser = () => {
         
       }
 
-      if (loading) {
-        return <Loader />;
-      }
-      if (ploading) {
-        return <Loader />;
-      }
       
       
       

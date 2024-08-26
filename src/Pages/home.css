@@ -1,16 +1,23 @@
+/* General Styles */
 .yourorders {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     padding: 20px;
-    position: relative;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
-.add_Btn{
+
+.add_Btn {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 15px;
+}
+
+.yourorderstable-container {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .yourorderstable {
@@ -18,6 +25,7 @@
     border-collapse: collapse;
     width: 100%;
     table-layout: auto;
+    max-width: 100%; /* Ensure table width does not exceed container */
 }
 
 .yourorderstable thead tr {
@@ -28,8 +36,8 @@
 .yourorderstable th {
     text-align: center;
     padding: 10px;
-    font-size: .85em;
-    letter-spacing: .1em;
+    font-size: 0.85em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 
@@ -40,13 +48,14 @@
 
 .yourorderstable td {
     text-align: center;
-    padding: 5px 20px;
-    border: 1px solid rgb(207, 207, 207);
+    padding: 5px 10px; /* Adjust padding */
+    border: 1px solid #cfcfcf;
     border-radius: 5px;
     color: grey;
+    word-wrap: break-word; /* Prevent overflow of text */
 }
 
-.mainbutton1 {
+.mainbutton1, .actionButton {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -57,10 +66,13 @@
     font-size: 16px;
     font-weight: 500;
     border-radius: 4px;
-    background-color: goldenrod;
-    color: white;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+}
+
+.mainbutton1 {
+    background-color: goldenrod;
+    color: white;
 }
 
 .mainbutton1:hover {
@@ -69,19 +81,8 @@
 }
 
 .actionButton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px 15px;
-    margin: 0;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 4px;
     background-color: #f44336; /* Red color for delete button */
     color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 .actionButton:hover {
@@ -131,63 +132,103 @@
 .page-item.active .page-link {
     background-color: #007bff;
     color: white;
-    border: 1px solid #007bff;
+    border-color: #007bff;
 }
 
 .page-item.disabled .page-link {
     color: #6c757d;
     cursor: not-allowed;
-    border: 1px solid #ddd;
+    border-color: #ddd;
     background-color: #f8f9fa;
 }
 
-/* Responsive design for medium screens */
+/* Responsive design for tablets and small screens */
 @media screen and (max-width: 1200px) {
     .yourorderstable thead {
-        border: none;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
+        display: none;
     }
 
     .yourorderstable tr {
         display: block;
-        margin-bottom: .625em;
+        margin-bottom: 0.625em;
         border: none;
     }
 
-    .yourorderstable tr td {
-        border: none;
-        border-radius: 0px;
+    .yourorderstable td {
         display: block;
-        font-size: .8em;
+        font-size: 0.8em;
         text-align: right;
-        display: flex;
-        justify-content: space-between;
+        border: none;
+        border-radius: 0;
+        position: relative;
+        padding-left: 50%;
+        box-sizing: border-box; /* Ensure padding is included in width */
     }
 
     .yourorderstable td::before {
         content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        white-space: nowrap;
     }
 }
 
-/* Responsive design for small screens */
-@media screen and (max-width: 600px) {
+/* Responsive design for mobile screens */
+@media screen and (max-width: 768px) {
+    .yourorderstable td {
+        font-size: 0.75em;
+        padding: 8px 5px; /* Adjust padding */
+    }
+
+    .mainbutton1, .actionButton {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
     .pagination {
-        flex-wrap: wrap;
-        margin-top: 10px;
+        margin-top: 15px;
     }
 
     .page-item {
-        margin: 5px 2px;
+        margin: 0 3px;
     }
 
     .page-link {
         padding: 3px 6px;
         font-size: 12px;
+    }
+}
+
+/* Responsive design for very small screens */
+@media screen and (max-width: 480px) {
+    .yourorders {
+        padding: 10px;
+    }
+
+    .add_Btn {
+        padding: 10px;
+    }
+
+    .mainbutton1, .actionButton {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .pagination {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .page-item {
+        margin: 2px 0;
+    }
+
+    .page-link {
+        padding: 2px 5px;
+        font-size: 10px;
     }
 }

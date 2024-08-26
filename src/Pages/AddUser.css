@@ -6,13 +6,15 @@
   border-left: 1px solid rgba(0, 0, 0, 0.158);
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Ensure full viewport height */
+  height: 100vh; /* Full viewport height */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  padding: 1rem; /* Add padding for better spacing */
 }
 
 /* Heading styling */
 .newProductContainer h1 {
   color: rgba(0, 0, 0, 0.733);
-  font: 300 2rem "Roboto";
+  font: 300 1.5rem "Roboto"; /* Adjust font size for better fit */
   text-align: center;
   margin: 1rem 0; /* Add margin for spacing */
 }
@@ -21,15 +23,17 @@
 .createProductForm {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch; /* Ensure full width on small screens */
   margin: auto;
-  padding: 3vmax;
-  justify-content: space-evenly;
+  padding: 1.5rem; /* Adjust padding for smaller screens */
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.267);
   border-radius: 8px; /* Added border-radius for a rounded look */
-  width: 70%;
+  width: 100%;
+  max-width: 500px; /* Limit maximum width for better fit on small screens */
+  box-sizing: border-box;
 }
+
 
 /* Form group styling */
 .createProductForm > div {
@@ -37,39 +41,41 @@
   align-items: center;
   width: 100%;
   position: relative; /* Required for positioning icons */
+  margin-bottom: 1rem; /* Add spacing between form groups */
 }
 
 /* Input and select styling */
 .createProductForm > div > input,
 .createProductForm > div > select {
-  padding: 1vmax 4vmax;
+  padding: 0.75rem 1.5rem; /* Adjust padding for smaller screens */
   width: 100%;
   box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, 0.267);
   border-radius: 4px;
-  font: 300 0.9vmax "Roboto";
+  font: 300 1rem "Roboto";
   outline: none;
-  margin-bottom: 0.5vmax;
+  margin-bottom: 0.5rem; /* Adjust margin for smaller screens */
 }
 
 /* Textarea styling */
 .createProductForm > div > textarea {
-  padding: 1vmax 4vmax;
+  padding: 0.75rem 1.5rem; /* Adjust padding for smaller screens */
   width: 100%;
   box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, 0.267);
   border-radius: 4px;
-  font: 300 0.9vmax "Roboto";
+  font: 300 1rem "Roboto";
   outline: none;
-  height: 5vmax;
-  margin-bottom: 0.5vmax;
+  height: 120px; /* Adjust height for smaller screens */
 }
 
 /* Icon styling */
 .createProductForm > div > svg {
   position: absolute;
-  left: 1vmax;
-  font-size: 1.6vmax;
+  left: 0.5rem;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Center vertically */
+  font-size: 1rem; /* Adjust icon size */
   color: rgba(0, 0, 0, 0.623);
 }
 
@@ -82,11 +88,11 @@
 #createProductFormFile > input::file-selector-button {
   cursor: pointer;
   width: 100%;
-  height: 5vh;
+  height: auto; /* Adjust height for better fit */
   border: none;
-  font: 400 0.8vmax "Roboto";
-  transition: background-color 0.5s;
-  padding: 0 1vmax;
+  font: 400 1rem "Roboto";
+  transition: background-color 0.3s;
+  padding: 0 1rem;
   color: rgba(0, 0, 0, 0.623);
   background-color: rgb(255, 255, 255);
 }
@@ -98,12 +104,13 @@
 /* Image styling */
 #createProductFormImage {
   width: 100%;
-  overflow: auto;
+  overflow: hidden;
 }
 
 #createProductFormImage > img {
-  width: 3vmax;
-  margin: 0 0.5vmax;
+  width: 100%;
+  height: auto;
+  margin: 0;
 }
 
 /* Submit button styling */
@@ -111,11 +118,11 @@
   border: none;
   background-color: goldenrod;
   color: white;
-  font: 300 0.9vmax "Roboto";
+  font: 300 1rem "Roboto";
   width: 100%;
-  padding: 0.8vmax;
+  padding: 0.8rem;
   cursor: pointer;
-  transition: background-color 0.5s;
+  transition: background-color 0.3s;
   border-radius: 4px;
   outline: none;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.219);
@@ -125,49 +132,42 @@
   background-color: gold;
 }
 
-/* Responsive design for small screens */
-@media screen and (max-width: 600px) {
+/* Responsive design for very small screens */
+@media screen and (max-width: 480px) {
   .newProductContainer {
-      background-color: rgb(255, 255, 255);
-      overflow: auto;
+      padding: 0.5rem; /* Reduced padding for very small screens */
   }
 
   .createProductForm {
-      padding: 6vmax;
-      width: 90%;
-      height: auto; /* Adjust height for small screens */
+      padding: 1rem;
+      width: 100%;
+      height: auto; /* Adjust height for very small screens */
   }
 
   .createProductForm > div > input,
   .createProductForm > div > select {
-      padding: 2.5vmax 5vmax;
-      font: 300 1.7vmax "Roboto";
-      margin-bottom: 1vmax;
+      padding: 0.5rem 1rem; /* Adjust padding for very small screens */
+      font: 300 0.9rem "Roboto";
   }
 
   .createProductForm > div > textarea {
-      padding: 2.5vmax 5vmax;
-      font: 300 1.7vmax "Roboto";
-      height: 10vmax;
-      margin-bottom: 1vmax;
+      padding: 0.5rem 1rem; /* Adjust padding for very small screens */
+      font: 300 0.9rem "Roboto";
+      height: 100px; /* Adjust height for very small screens */
   }
 
   .createProductForm > div > svg {
-      font-size: 2.8vmax;
+      font-size:1rem; /* Adjust icon size for very small screens */
+      position: absolute;
+      left: 0rem;
   }
 
   #createProductFormFile > img {
-      width: 8vmax;
-      border-radius: 50%;
-  }
-
-  #createProductFormFile > input::file-selector-button {
-      height: 7vh;
-      font: 400 1.8vmax "Roboto";
+      width: 100%;
   }
 
   #createProductBtn {
-      font: 300 1.9vmax "Roboto";
-      padding: 1.8vmax;
+      font: 300 1rem "Roboto";
+      padding: 1rem;
   }
 }

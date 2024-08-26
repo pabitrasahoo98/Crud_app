@@ -10,7 +10,6 @@ import FaceIcon from '@mui/icons-material/Face';
 import InstallMobileIcon from '@mui/icons-material/InstallMobile';
 import BoyIcon from '@mui/icons-material/Boy';
 import Swal from 'sweetalert2';
-import Loader from './Loader';
 import Header from './Header';
 
 
@@ -65,9 +64,7 @@ const AddUser = () => {
         
       }, [error,success,dispatch,navigate])
 
-      if (loading) {
-        return <Loader />;
-      }
+     
       
   return (
     <>
